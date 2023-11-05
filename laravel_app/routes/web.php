@@ -1,6 +1,6 @@
 <?php
 
-// use App\Http\Middleware;
+use App\Http\Middleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,10 +24,21 @@ Route::get('/', function () {
 //     Route::get('/hello/other', "HelloController@other");
 // });
 
-Route::namespace("Sample")->group(function (){
-    Route::get('/sample', "SampleController@index");
-    Route::get('/sample/other', "SampleController@other");
-});
+// Route::namespace("Sample")->group(function (){
+//     Route::get('/sample', "SampleController@index");
+//     Route::get('/sample/other', "SampleController@other");
+// });
 
 // Route::get('/hello/{person}', "HelloController@index");
-Route::get('/hello', "HelloController@index");
+
+// 1-29
+// Route::get('/hello', "HelloController@index");
+// Route::get('/hello/other', "HelloController@other");
+// Route::get('/sample', "Sample\SampleController@index")->name("sample");
+
+// 1-34
+Route::get('/hello', "HelloController@index")->name("hello");
+// Route::get('/hello/{msg}', "HelloController@other");
+
+// 1-45
+Route::post("hello/other", "HelloController@other");
